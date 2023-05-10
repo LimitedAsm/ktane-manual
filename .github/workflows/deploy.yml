@@ -5,19 +5,36 @@ on:
     branches: [master]
 
 jobs:
-  build-and-deploy:
+  build:
+    name: Create Build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+      - name: Git Checkout
+        uses: actions/checkout@v3
 
-      - name: Install and Build 🔧
+      - name: Install and Build
         run: |
           npm ci
           npm run build
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.0
+      - name: Upload Web Build Files
+        uses: actions/upload-artifact@v3
         with:
-          branch: gh-pages
-          folder: dist
+          name: web-release
+          path: ./dist
+
+  deploy:
+    name: Deploy Build
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Release
+        uses: actions/download-artifact@v3
+        with:
+          name: web-release
+
+      - name: Deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
