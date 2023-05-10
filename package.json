@@ -11,6 +11,6 @@
   },
   "scripts": {
     "start": "parcel index.html --open",
-    "build": "parcel build --public-url ./ index.html --no-minify"
+    "build": "parcel build index.html --public-url ./ --no-minify"
   }
 }
