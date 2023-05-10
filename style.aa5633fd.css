@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+.manual-times{
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: repeat(4, 1fr);
+    display: inline-grid;
+    justify-items: center;
+    align-items: center;
+}
+.manual-tile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    /*border: black 1px solid;*/
+    padding: 5px;
+    margin: 5px;
+}
+.manual-tile-img{
+    height: 25vh;
+    border: black 2px solid;
+    margin: 5px;
+}
+.manual-tile-name{
+    font-size: 25px;
+    font-weight: bold;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.back{
+    text-decoration: none;
+    color: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 10px;
+    font-size: 50px;
+}
+.manual-page{
+    height: 95vh;
+}
+
+/*# sourceMappingURL=style.aa5633fd.css.map */
